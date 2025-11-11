@@ -59,4 +59,21 @@ class VisionProBridge:
             time.sleep(0.05)
 
     def get_hand_relative_to_head(self):
-        
+        with self.data_lock:
+            head_pose = self.lastest_data['head_pose'].copy
+            wrist_pose = self.lastest_data['wrist_pose'].copy
+
+        head_inv = np.linalg.inv(head_pose)
+        relative_pose = head_inv @ wrist_pose
+
+        position = relative_pose[:3,3]
+        rotation = relative_pose[:3,:3]
+
+        return position, rotation
+    
+    def get_pinch_state(self, threshold: float = 0.02):
+
+        with self.data_lock:
+            pinch_distance = self.lastest_data['pinch_distance']
+
+        return pinch_distance < threshold

@@ -1,0 +1,20 @@
+# VisionPro 工作空间标定数据
+calibration_time: '2025-11-11 14:32:15'
+
+workspace_bounds:
+  center: [0.35, 0.02, -0.05]
+  x_range: [0.15, 0.55]
+  y_range: [-0.28, 0.32]
+  z_range: [-0.35, 0.25]
+  x_span: 0.40
+  y_span: 0.60
+  z_span: 0.60
+
+calibration_points:
+  center: [0.35, 0.02, -0.05]
+  front: [0.55, 0.01, -0.03]
+  back: [0.15, 0.03, -0.07]
+  left: [0.33, 0.32, -0.04]
+  right: [0.37, -0.28, -0.06]
+  top: [0.34, 0.00, 0.25]
+  bottom: [0.36, 0.04, -0.35]
