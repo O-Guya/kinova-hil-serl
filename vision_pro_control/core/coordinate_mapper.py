@@ -279,3 +279,18 @@ class CoordinateMapper:
         print(f"  死区半径: {self.deadzone_radius} m")
         print(f"  滤波系数: {self.filter_alpha}")
         print("="*50 + "\n")
+
+    @classmethod
+    def from_config(cls, config_dict: dict):
+        """从配置字典创建 Mapper"""
+        mapper = cls(calibration_file=config_dict['calibration']['file'])
+        
+        mapper_config = config_dict['mapper']
+        mapper.position_gain = mapper_config['position_gain']
+        mapper.rotation_gain = mapper_config['rotation_gain']
+        mapper.max_linear_velocity = mapper_config['max_linear_velocity']
+        mapper.max_angular_velocity = mapper_config['max_angular_velocity']
+        mapper.deadzone_radius = mapper_config['deadzone_radius']
+        mapper.filter_alpha = mapper_config['filter_alpha']
+        
+        return mapper
