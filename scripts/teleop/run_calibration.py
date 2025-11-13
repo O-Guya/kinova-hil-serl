@@ -8,7 +8,7 @@ import argparse
 from pathlib import Path
 
 # 添加路径
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 
 from vision_pro_control.core.visionpro_bridge import VisionProBridge
